@@ -1,0 +1,70 @@
+/* ============================================================
+   FFF / F3 — TYPOGRAPHY TOKENS
+   Three roles, used together on a page:
+   01 Base       Helvetica   → set BOLD/BLACK for statements & headings,
+                               regular for body, spaced-caps for labels.
+   02 Character  Exposure    → the ink-bleed editorial serif for monumental
+                               display words (Ambition / Diplomacy / Roadmap).
+   03 Annotation MANIC       → hand-drawn marker for diagram labels & marks
+                               (F+1 Estrategia…) and the fff lockup.
+   Helvetica is the workhorse; reach for big BOLD weights, not thin.
+   ============================================================ */
+:root {
+  /* --- Families --- */
+  /* Base is Helvetica per the book; only Thin-Italic ships as a webfont so the
+     working face is the platform Helvetica Neue / Arial grotesque. */
+  --font-base:      "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display:   "Exposure", "Exposure Ink", Georgia, "Times New Roman", serif;
+  --font-ink:       "Exposure Ink", "Exposure", "Helvetica Neue", sans-serif;
+  --font-ink-heavy: "Exposure Ink Heavy", "Exposure", "Helvetica Neue", sans-serif;
+  --font-mark:      "MANIC", "Rockwell", "Roboto Slab", Georgia, serif;
+  --font-hand:      "MANIC", "Bradley Hand", "Segoe Print", "Comic Sans MS", cursive; /* hand-drawn marker annotations */
+  --font-mono:      ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* --- Weights (Helvetica base) --- */
+  --w-thin:    100; /* @kind other */
+  --w-light:   300; /* @kind other */
+  --w-regular: 400; /* @kind other */
+  --w-medium:  500; /* @kind other */
+  --w-bold:    700; /* @kind other */
+  --w-black:   900; /* @kind other */
+
+  /* --- Type scale (rem, 16px root). Editorial: big jumps, tight display tracking --- */
+  --fs-2xs:  0.6875rem;  /* 11px — micro labels, stamps        */
+  --fs-xs:   0.75rem;    /* 12px — captions, eyebrows           */
+  --fs-sm:   0.875rem;   /* 14px — secondary UI                 */
+  --fs-base: 1rem;       /* 16px — body                         */
+  --fs-md:   1.125rem;   /* 18px — lead body                    */
+  --fs-lg:   1.5rem;     /* 24px — small headings               */
+  --fs-xl:   2rem;       /* 32px — headings                     */
+  --fs-2xl:  3rem;       /* 48px — display                      */
+  --fs-3xl:  4.5rem;     /* 72px — big display                  */
+  --fs-4xl:  7rem;       /* 112px — hero / wordmark scale       */
+  --fs-5xl:  11rem;      /* 176px — billboard                   */
+
+  /* --- Line heights --- */
+  --lh-tight:   0.92;  /* @kind other */
+  --lh-snug:    1.05;  /* @kind other */
+  --lh-heading: 1.12;  /* @kind other */
+  --lh-body:    1.5;   /* @kind other */
+  --lh-relaxed: 1.65;  /* @kind other */
+
+  /* --- Letter spacing --- */
+  --ls-tighter: -0.04em; /* @kind other */
+  --ls-tight:   -0.02em; /* @kind other */
+  --ls-normal:  0em;     /* @kind other */
+  --ls-wide:    0.08em;  /* @kind other */
+  --ls-wider:   0.18em;  /* @kind other */
+
+  /* --- Semantic text roles ---
+     Headings lean BOLD/BLACK Helvetica (the book's voice), tight tracking.
+     Display = Exposure serif. Labels = spaced caps. --- */
+  --text-display:  var(--w-regular) var(--fs-3xl)/var(--lh-tight) var(--font-display);
+  --text-statement:var(--w-bold)    var(--fs-2xl)/0.98 var(--font-base);
+  --text-h1:       var(--w-bold)    var(--fs-2xl)/var(--lh-heading) var(--font-base);
+  --text-h2:       var(--w-bold)    var(--fs-xl)/var(--lh-heading) var(--font-base);
+  --text-h3:       var(--w-medium)  var(--fs-lg)/var(--lh-snug) var(--font-base);
+  --text-body:     var(--w-regular) var(--fs-base)/var(--lh-body) var(--font-base);
+  --text-label:    var(--w-medium)  var(--fs-xs)/1 var(--font-base);
+  --text-caption:  var(--w-regular) var(--fs-xs)/var(--lh-snug) var(--font-base);
+}

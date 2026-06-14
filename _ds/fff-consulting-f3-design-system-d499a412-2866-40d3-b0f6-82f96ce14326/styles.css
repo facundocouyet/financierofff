@@ -1,0 +1,12 @@
+/* ============================================================
+   FFF / F3 — DESIGN SYSTEM ENTRY
+   Consumers link THIS file only. It is an @import manifest;
+   every rule lives in a token file in the closure below.
+   Brand by Cáscara Collective · © 2026 F3 / FFF Consulting
+   ============================================================ */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/effects.css";
+@import "tokens/motifs.css";

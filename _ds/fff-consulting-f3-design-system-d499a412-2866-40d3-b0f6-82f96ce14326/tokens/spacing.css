@@ -1,0 +1,37 @@
+/* ============================================================
+   FFF / F3 — SPACING, GRID & SIZING
+   The system is built on a technical / blueprint grid: 4px base,
+   hairline rules, generous editorial margins.
+   ============================================================ */
+:root {
+  /* --- Spacing scale (4px base) --- */
+  --sp-0:   0; /* @kind spacing */
+  --sp-1:   0.25rem;  /* 4  */
+  --sp-2:   0.5rem;   /* 8  */
+  --sp-3:   0.75rem;  /* 12 */
+  --sp-4:   1rem;     /* 16 */
+  --sp-5:   1.5rem;   /* 24 */
+  --sp-6:   2rem;     /* 32 */
+  --sp-7:   3rem;     /* 48 */
+  --sp-8:   4rem;     /* 64 */
+  --sp-9:   6rem;     /* 96 */
+  --sp-10:  8rem;     /* 128 */
+
+  /* --- Layout --- */
+  --container-max: 1280px;
+  --gutter:        var(--sp-5);
+  --margin-page:   var(--sp-7);
+
+  /* --- Radii — the brand is hard-edged. Corners are square by default;
+         the only soft shapes are full circles (badges, the fff token). --- */
+  --radius-none:  0;
+  --radius-xs:    2px;   /* inputs / subtle softening only when needed */
+  --radius-sm:    4px;
+  --radius-pill:  999px;
+  --radius-full:  50%;
+
+  /* --- Hairlines / borders — technical line weight --- */
+  --hairline:     1px;
+  --rule:         1.5px;
+  --rule-bold:    2px;
+}

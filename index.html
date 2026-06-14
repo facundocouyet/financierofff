@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informes 2026 · F3 · FFF Consulting</title>
+
+<link rel="stylesheet" href="_ds/fff-consulting-f3-design-system-d499a412-2866-40d3-b0f6-82f96ce14326/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/fff-consulting-f3-design-system-d499a412-2866-40d3-b0f6-82f96ce14326/tokens/colors.css">
+<link rel="stylesheet" href="_ds/fff-consulting-f3-design-system-d499a412-2866-40d3-b0f6-82f96ce14326/tokens/typography.css">
+
+<style>
+  @font-face { font-family:"Helvetica Now Display"; src:url("assets/fonts/HelveticaNowDisplay-Regular.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Helvetica Now Display"; src:url("assets/fonts/HelveticaNowDisplay-Medium.woff2") format("woff2"); font-weight:500; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Helvetica Now Display"; src:url("assets/fonts/HelveticaNowDisplay-Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Helvetica Now Display"; src:url("assets/fonts/HelveticaNowDisplay-Black.woff2") format("woff2"); font-weight:900; font-style:normal; font-display:swap; }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  :root{
+    --ink:var(--f3-negro); --red:var(--f3-acento); --paper:var(--f3-paper); --muted:var(--f3-gris-500);
+    --line:#B6B4AC; --soft:#F4F2EC; --faint:var(--f3-gris-400);
+  }
+  html{ scroll-behavior:smooth; }
+  html, body{ overflow-x:hidden; overscroll-behavior-x:none; max-width:100%; }
+  body{ background:var(--paper); color:var(--ink);
+    font-family:"Helvetica Now Display","Helvetica Neue",Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased; padding:64px clamp(26px,6vw,118px) 90px; position:relative; }
+  /* paper grain */
+  body::before{ content:""; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+    background-size:140px 140px; mix-blend-mode:multiply; opacity:0.04; }
+  .wrap{ max-width:1320px; margin:0 auto; position:relative; z-index:1; }
+
+  .em{ font-family:var(--font-display); font-style:normal; font-weight:400; }
+  .num{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
+  .red{ color:var(--red); }
+
+  /* ===== header ===== */
+  header{ display:flex; justify-content:space-between; align-items:flex-start; gap:30px; }
+  .kicker{ display:flex; align-items:center; gap:14px; font-family:var(--font-mono); font-size:12px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--red); }
+  .kicker::before{ content:""; width:26px; height:3px; background:var(--red); }
+  .brandmark{ display:flex; flex-direction:column; align-items:flex-end; gap:8px; }
+  .brandmark img{ height:46px; }
+  .stamp{ font-family:var(--font-mono); font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--faint); }
+  h1{ font-weight:900; letter-spacing:-0.03em; line-height:.94; margin-top:26px; font-size:clamp(52px,8.4vw,108px); }
+  h1 .em{ font-weight:400; letter-spacing:-0.01em; }
+  .lede{ font-size:clamp(18px,2.1vw,24px); color:var(--muted); max-width:840px; line-height:1.5; margin-top:24px; }
+  .lede b{ color:var(--ink); font-weight:700; }
+
+  /* ===== dashboard ===== */
+  .dash{ margin-top:46px; }
+  .kpis{ display:grid; grid-template-columns:repeat(4,1fr); gap:0; border:2px solid var(--ink); border-radius:18px; overflow:hidden; }
+  .kpi{ padding:26px 28px 24px; display:flex; flex-direction:column; min-height:178px; border-left:1.5px solid var(--line); }
+  .kpi:first-child{ border-left:none; }
+  .kpi.key{ background:var(--red); color:#fff; border-left-color:var(--red); }
+  .kpi__l{ font-family:var(--font-mono); font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); }
+  .kpi.key .kpi__l{ color:rgba(255,255,255,.82); }
+  .kpi__v{ font-family:var(--font-display); font-size:54px; line-height:.9; margin-top:14px; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .kpi.key .kpi__v{ color:#fff; }
+  .kpi__s{ font-size:14px; color:var(--muted); margin-top:auto; padding-top:12px; line-height:1.4; }
+  .kpi.key .kpi__s{ color:rgba(255,255,255,.85); }
+  .kpi__s b{ color:var(--ink); font-weight:700; }
+
+  .dashnote{ font-size:15px; color:var(--muted); line-height:1.55; margin-top:16px; padding:15px 20px; border:1.5px solid var(--line); background:var(--soft); border-radius:14px; }
+  .dashnote b{ color:var(--ink); font-weight:700; }
+
+  .charts{ display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px; }
+  .chartcard{ border:2px solid var(--ink); padding:28px 32px; min-width:0; border-radius:18px; }
+  .chartcard.full{ grid-column:1 / -1; }
+  .chartcard__t{ font-family:var(--font-mono); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--ink); }
+  .chartcard__sub{ font-size:14px; color:var(--muted); margin-top:5px; }
+
+  .donutwrap{ display:flex; align-items:center; gap:30px; margin-top:24px; }
+  .donut{ width:172px; height:172px; border-radius:50%; flex:0 0 auto; position:relative; }
+  .donut::after{ content:""; position:absolute; inset:33px; background:var(--paper); border-radius:50%; }
+  .donut__c{ position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:1; }
+  .donut__c b{ font-family:var(--font-display); font-size:21px; color:var(--ink); line-height:1; white-space:nowrap; }
+  .donut__c span{ font-family:var(--font-mono); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); margin-top:5px; }
+  .legend2{ display:flex; flex-direction:column; gap:11px; flex:1; min-width:0; }
+  .lg{ display:flex; align-items:baseline; gap:11px; font-size:15px; line-height:1.25; }
+  .lg .dot{ width:12px; height:12px; flex:0 0 auto; position:relative; top:2px; border-radius:4px; }
+  .lg .nm{ flex:1; }
+  .lg .amt{ color:var(--muted); font-size:13px; font-variant-numeric:tabular-nums; }
+  .lg .pc{ font-family:var(--font-display); font-size:19px; font-variant-numeric:tabular-nums; }
+
+  /* facturado/cobrado bars */
+  .legend-row{ display:flex; gap:26px; margin-top:18px; font-size:14px; color:var(--muted); font-weight:500; }
+  .legend-row i{ display:inline-block; width:14px; height:14px; margin-right:8px; vertical-align:middle; }
+  .legend-row .sw-fact{ background:var(--red); }
+  .legend-row .sw-cob{ background:transparent; border:1.5px solid var(--ink); }
+  .barsmini{ display:flex; align-items:flex-end; gap:24px; height:172px; margin-top:18px; border-bottom:2px solid var(--ink); }
+  .bm{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+  .bm__pair{ display:flex; gap:10px; align-items:flex-end; justify-content:center; height:100%; width:100%; }
+  .b-fact{ width:38px; background:var(--red); border-radius:7px 7px 0 0; }
+  .b-cob{ width:38px; background:transparent; border:1.5px solid var(--ink); border-bottom:none; border-radius:7px 7px 0 0; }
+  .bm__cap{ display:flex; margin-top:12px; }
+  .bm__m{ flex:1; text-align:center; font-size:15px; color:var(--muted); }
+  .bm__m b{ display:block; color:var(--ink); font-family:var(--font-display); font-size:19px; margin-bottom:2px; }
+  .chartcard__foot{ font-size:14px; color:var(--muted); margin-top:16px; line-height:1.45; }
+
+  /* ===== section + cards ===== */
+  .section-label{ font-family:var(--font-mono); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.16em; color:var(--muted);
+    margin:60px 0 22px; padding-bottom:14px; border-bottom:1.5px solid var(--line); display:flex; justify-content:space-between; align-items:baseline; }
+  .section-label span{ color:var(--faint); letter-spacing:.1em; }
+
+  .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
+  .card{ display:flex; flex-direction:column; text-decoration:none; color:inherit; position:relative;
+    background:var(--soft); border:2px solid var(--ink); padding:30px 30px 26px;
+    transition:transform .16s ease, background .16s ease, color .16s ease; min-height:244px; border-radius:20px; }
+  a.card:hover{ transform:translateY(-3px); background:#fff; }
+  .card__no{ font-family:var(--font-display); font-size:26px; color:var(--red); }
+  .card__month{ font-size:38px; font-weight:900; letter-spacing:-.02em; margin-top:4px; }
+  .card__head{ font-size:17px; color:var(--muted); line-height:1.4; margin-top:12px; flex:1; padding-right:30px; }
+  .card__res{ display:flex; gap:12px; margin-top:22px; padding-top:18px; border-top:1.5px solid var(--line); }
+  .card__res div{ flex:1; min-width:0; }
+  .card__res div span{ font-family:var(--font-mono); font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--muted); display:block; }
+  .card__res div b{ font-family:var(--font-display); font-size:21px; font-variant-numeric:tabular-nums; white-space:nowrap; display:block; margin-top:6px; letter-spacing:-0.01em; }
+  .arrow{ position:absolute; top:30px; right:32px; font-family:var(--font-display); font-size:30px; color:var(--red); line-height:1; }
+
+  /* summary cards = ink / red */
+  .card.sum{ background:var(--ink); color:#fff; border-color:var(--ink); }
+  .card.sum .card__month{ color:#fff; }
+  .card.sum .card__head{ color:rgba(255,255,255,.72); }
+  .card.sum .card__res{ border-top-color:rgba(255,255,255,.22); }
+  .card.sum .card__res div span{ color:rgba(255,255,255,.62); }
+  .card.sum .card__res div b{ color:#fff; }
+  a.card.sum:hover{ background:#000; }
+  .card.sum.red{ background:var(--red); border-color:var(--red); }
+  .card.sum.red .card__no, .card.sum.red .arrow{ color:#fff; }
+  a.card.sum.red:hover{ background:var(--accent-press); }
+
+  footer{ margin-top:64px; padding-top:22px; border-top:1.5px solid var(--line); font-size:14px; color:var(--muted); line-height:1.55; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+  footer b{ color:var(--ink); }
+  footer .mono{ font-family:var(--font-mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase; }
+
+  @media (max-width:1100px){ .kpis{ grid-template-columns:1fr 1fr; } .kpi:nth-child(3){ border-left:none; } .kpi{ border-top:1.5px solid var(--line); } .kpi:nth-child(1),.kpi:nth-child(2){ border-top:none; } }
+  @media (max-width:820px){ .charts{ grid-template-columns:1fr; } }
+  @media (max-width:560px){ .kpis{ grid-template-columns:1fr; } .kpi{ border-left:none; border-top:1.5px solid var(--line); } .kpi:first-child{ border-top:none; }
+    .donutwrap{ flex-direction:column; align-items:flex-start; } h1{ font-size:clamp(44px,13vw,64px); } .brandmark img{ height:32px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <div class="kicker">Informes 2026 · F3</div>
+    </div>
+    <div class="brandmark">
+      <img src="assets/logos/logo-principal-negro.svg" alt="F3 — FFF Consulting">
+      <div class="stamp">ESTD ID: SM-2026</div>
+    </div>
+  </header>
+
+  <h1>Caja del <span class="em">trimestre</span></h1>
+  <p class="lede">Reportes financieros internos para los socios — <b>Marzo a Mayo 2026</b>. Cada mes se lee con dos números: <b>lo facturado</b> (el trabajo cerrado) y <b>la caja</b> (lo que realmente entró). Moneda: dólares.</p>
+
+  <!-- ===== DASHBOARD ===== -->
+  <div class="dash">
+    <div class="kpis">
+      <div class="kpi key">
+        <div class="kpi__l">Cobrado · Mar–May</div>
+        <div class="kpi__v num">US$32.823</div>
+        <div class="kpi__s">Lo que entró a la caja por ventas</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__l">Saldo al cierre · Mayo</div>
+        <div class="kpi__v num">US$7.181</div>
+        <div class="kpi__s">Disponible al 31 de mayo</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__l">Facturado · Marzo</div>
+        <div class="kpi__v num">US$25.900</div>
+        <div class="kpi__s">Acuerdos cerrados en el mes</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__l">Cobros · Mar → May</div>
+        <div class="kpi__v num">−51%</div>
+        <div class="kpi__s">De <b>US$15.700</b> a <b>US$7.673</b> por mes</div>
+      </div>
+    </div>
+    <p class="dashnote">El trimestre cierra <b>en positivo</b> pero la caja se reduce mes a mes: los cobros bajan, mientras el <b>reparto a socios</b> y los fijos sostienen el ritmo de salida.</p>
+
+    <div class="charts">
+      <!-- donut: canales -->
+      <div class="chartcard">
+        <div class="chartcard__t">De dónde entró</div>
+        <div class="chartcard__sub">Cobros por canal · trimestre</div>
+        <div class="donutwrap">
+          <div class="donut" style="background:conic-gradient(var(--f3-acento) 0 22.1%, var(--f3-negro) 22.1% 41.9%, var(--f3-gris-700) 41.9% 60.7%, var(--f3-gris-medio) 60.7% 72.2%, var(--f3-gris-400) 72.2% 100%);">
+            <div class="donut__c"><b class="num">US$30k</b><span>Cobrado</span></div>
+          </div>
+          <div class="legend2">
+            <div class="lg"><span class="dot" style="background:var(--f3-acento)"></span><span class="nm">Mercury · Cáscara<br><span class="amt">US$6.700</span></span><span class="pc">22%</span></div>
+            <div class="lg"><span class="dot" style="background:var(--f3-negro)"></span><span class="nm">Efectivo / Cash<br><span class="amt">US$6.000</span></span><span class="pc">20%</span></div>
+            <div class="lg"><span class="dot" style="background:var(--f3-gris-700)"></span><span class="nm">Dreamworld<br><span class="amt">US$5.700</span></span><span class="pc">19%</span></div>
+            <div class="lg"><span class="dot" style="background:var(--f3-gris-medio)"></span><span class="nm">Brubank USD<br><span class="amt">US$3.500</span></span><span class="pc">12%</span></div>
+            <div class="lg"><span class="dot" style="background:var(--f3-gris-400)"></span><span class="nm">Otros (lemon, Binance…)<br><span class="amt">US$8.423</span></span><span class="pc">28%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- donut: salida -->
+      <div class="chartcard">
+        <div class="chartcard__t">A dónde fue</div>
+        <div class="chartcard__sub">La salida del trimestre · ≈US$26k</div>
+        <div class="donutwrap">
+          <div class="donut" style="background:conic-gradient(var(--f3-acento) 0 82%, var(--f3-negro) 82% 97%, var(--f3-gris-medio) 97% 100%);">
+            <div class="donut__c"><b class="num">≈US$26k</b><span>Salió</span></div>
+          </div>
+          <div class="legend2">
+            <div class="lg"><span class="dot" style="background:var(--f3-acento)"></span><span class="nm">Reparto a socios<br><span class="amt">≈US$21.400</span></span><span class="pc">82%</span></div>
+            <div class="lg"><span class="dot" style="background:var(--f3-negro)"></span><span class="nm">Equipo fijo · Teo, Lola, Anto<br><span class="amt">≈US$3.950</span></span><span class="pc">15%</span></div>
+            <div class="lg"><span class="dot" style="background:var(--f3-gris-medio)"></span><span class="nm">Contenido y comisiones<br><span class="amt">≈US$820</span></span><span class="pc">3%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bars facturado vs cobrado -->
+      <div class="chartcard full">
+        <div class="chartcard__t">Facturado vs. cobrado</div>
+        <div class="chartcard__sub">Lo cerrado contra lo que entró a la caja, mes a mes</div>
+        <div class="legend-row"><span><i class="sw-fact"></i>Facturado</span><span><i class="sw-cob"></i>Cobrado</span></div>
+        <div class="barsmini">
+          <div class="bm"><div class="bm__pair"><div class="b-fact" style="height:100%"></div><div class="b-cob" style="height:61%"></div></div></div>
+          <div class="bm"><div class="bm__pair"><div class="b-fact" style="height:36%"></div><div class="b-cob" style="height:36%"></div></div></div>
+          <div class="bm"><div class="bm__pair"><div class="b-fact" style="height:30%"></div><div class="b-cob" style="height:30%"></div></div></div>
+        </div>
+        <div class="bm__cap">
+          <div class="bm__m"><b>25.900 / 15.700</b>Marzo</div>
+          <div class="bm__m"><b>9.450 / 9.450</b>Abril</div>
+          <div class="bm__m"><b>7.673 / 7.673</b>Mayo</div>
+        </div>
+        <div class="chartcard__foot">La brecha entre facturar y cobrar sólo aparece en <b>marzo</b> (se cerró US$25.900 y entró US$15.700; el resto llegó en cuotas). En abril y mayo lo facturado entró completo en el mes.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MESES ===== -->
+  <div class="section-label">Los informes<span>Mar · Abr · May · Trimestre</span></div>
+  <div class="grid">
+    <a class="card" href="marzo.html">
+      <div class="card__no">01</div>
+      <div class="card__month">Marzo</div>
+      <p class="card__head">Arranca el registro. Entran US$15.700 y el reparto a socios se difiere a comienzos de abril.</p>
+      <div class="card__res">
+        <div><span>Cobrado</span><b class="num">US$15.700</b></div>
+        <div><span>Saldo final</span><b class="num">US$15.700</b></div>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+    <a class="card" href="abril.html">
+      <div class="card__no">02</div>
+      <div class="card__month">Abril</div>
+      <p class="card__head">El reparto grande: salen US$14.155 a los socios y entran US$9.450 de nuevos clientes.</p>
+      <div class="card__res">
+        <div><span>Cobrado</span><b class="num">US$9.450</b></div>
+        <div><span>Saldo final</span><b class="num">US$10.995</b></div>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+    <a class="card" href="mayo.html">
+      <div class="card__no">03</div>
+      <div class="card__month">Mayo</div>
+      <p class="card__head">Cobros en su punto más bajo y salida sostenida. La caja cierra el trimestre en US$7.181.</p>
+      <div class="card__res">
+        <div><span>Cobrado</span><b class="num">US$7.673</b></div>
+        <div><span>Saldo final</span><b class="num">US$7.181</b></div>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+    <a class="card sum red" href="trimestre.html">
+      <div class="card__no">Q2</div>
+      <div class="card__month">Trimestre</div>
+      <p class="card__head">La presentación del trimestre: resumen, evolución, canales, cajas y reparto. En el celular se abre en scroll vertical.</p>
+      <div class="card__res">
+        <div><span>Cobrado</span><b class="num">US$32.823</b></div>
+        <div><span>Saldo</span><b class="num">US$7.181</b></div>
+        <div class="arrow">→</div>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <div>Uso interno entre socios · <b>F3 / FFF Consulting</b><br>Fuente: planilla <b>F3 2026</b> — Marzo, Abril, Mayo.</div>
+    <div class="mono">Confidencial · Creative Consulting /// 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>

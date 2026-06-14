@@ -1,0 +1,84 @@
+/* ============================================================
+   FFF / F3 — WEBFONTS
+   Three families per the brand book:
+   01 Base       → Helvetica Neue (system stack; only Thin-Italic webfont shipped)
+   02 Character  → Exposure (display, inkbleed variants)
+   02 Manuscrita → MANIC (hand-drawn annotations, 5 cuts)
+   ============================================================ */
+
+/* --- 01 BASE — Helvetica Now Display (Thin Italic only ships as a webfont;
+       the rest of the system relies on the platform Helvetica/Arial stack) --- */
+@font-face {
+  font-family: "Helvetica Now Display";
+  src: url("../assets/fonts/HelveticaNowDisplay-ThinIta.woff2") format("woff2"),
+       url("../assets/fonts/HelveticaNowDisplay-ThinIta.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- 02 CHARACTER — Exposure (trial). Variable-ish width/ink axis shipped as
+       three static cuts. [0] = clean, [-80]/[-90] = progressive inkbleed. --- */
+@font-face {
+  font-family: "Exposure";
+  src: url("../assets/fonts/Exposure-0.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Exposure Ink";
+  src: url("../assets/fonts/Exposure-80.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Exposure Ink Heavy";
+  src: url("../assets/fonts/Exposure-90.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- 02 MANUSCRITA — MANIC (hand-drawn). Regular + 3 alternate cuts + sketches. --- */
+@font-face {
+  font-family: "MANIC";
+  src: url("../assets/fonts/MANIC-Regular.woff2") format("woff2"),
+       url("../assets/fonts/MANIC-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MANIC Alt 1";
+  src: url("../assets/fonts/MANIC-Alternates1.woff2") format("woff2"),
+       url("../assets/fonts/MANIC-Alternates1.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MANIC Alt 2";
+  src: url("../assets/fonts/MANIC-Alternates2.woff2") format("woff2"),
+       url("../assets/fonts/MANIC-Alternates2.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MANIC Alt 3";
+  src: url("../assets/fonts/MANIC-Alternates3.woff2") format("woff2"),
+       url("../assets/fonts/MANIC-Alternates3.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "MANIC Sketches";
+  src: url("../assets/fonts/MANIC-Sketches.woff2") format("woff2"),
+       url("../assets/fonts/MANIC-Sketches.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

@@ -1,0 +1,89 @@
+/* ============================================================
+   FFF / F3 — EDITORIAL MOTIFS
+   The repeatable graphic vocabulary of the brand book, as utilities.
+   These are what make a layout read as "FFF": boxed trademark labels,
+   metadata stamps, redacted name bars, the F→FF→FFF→F3 progression,
+   hairline-crossed display type, bracketed data numbers.
+   ============================================================ */
+
+/* --- Boxed trademark label: [ FFF™Consulting ] --- */
+.f3-boxlabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  font-family: var(--font-base);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  padding: 5px 9px;
+  border: var(--hairline) solid currentColor;
+}
+.f3-boxlabel sup { font-size: 0.6em; vertical-align: super; }
+
+/* --- Metadata stamp list: FILE UNDER / METHOD / FIELD … (mono, two cols) --- */
+.f3-meta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 18px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+.f3-meta dt { color: var(--text-muted); text-align: right; white-space: nowrap; }
+.f3-meta dd { color: var(--text-secondary); margin: 0; }
+
+/* --- Single corner stamp (ESTD ID: SM-2026 / [ FILE UNDER: CURATED ]) --- */
+.f3-stamp {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+/* --- Redacted name bar: black highlighter over bold name --- */
+.f3-redact {
+  display: inline-block;
+  background: var(--f3-negro);
+  color: var(--f3-blanco);
+  font-family: var(--font-base);
+  font-weight: 700;
+  font-size: var(--fs-lg);
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  padding: 4px 14px 6px;
+  white-space: nowrap;
+}
+.f3-redact--accent { background: var(--accent); }
+
+/* --- F → FF → FFF → F3 progression chips --- */
+.f3-progression { display: inline-flex; flex-direction: column; gap: 6px; }
+.f3-progression span {
+  display: flex; align-items: center; justify-content: center;
+  min-width: 64px; height: 40px; padding: 0 14px;
+  border: var(--hairline) solid var(--border-strong);
+  font-family: var(--font-base); font-weight: 700; font-size: var(--fs-sm); letter-spacing: 0.04em;
+}
+.f3-progression span.is-final { background: var(--f3-negro); color: var(--f3-blanco); border-color: var(--f3-negro); }
+
+/* --- Display word with hairline rules crossing it (the cover motif) --- */
+.f3-crossed { position: relative; display: inline-block; }
+.f3-crossed::before, .f3-crossed::after {
+  content: ""; position: absolute; left: -6%; right: -6%; height: var(--hairline); background: currentColor; opacity: 0.5;
+}
+.f3-crossed::before { top: 38%; }
+.f3-crossed::after  { top: 70%; }
+
+/* --- Bracketed data number: [ 11 ] MARCAS --- */
+.f3-num::before { content: "[ "; }
+.f3-num::after  { content: " ]"; }
+.f3-num { font-variant-numeric: tabular-nums; }
+
+/* --- Slash eyebrow: F3 /// SECTION --- */
+.f3-slash { color: var(--accent); font-weight: 700; }
+
+/* --- Hairline rule used to separate stacked rows --- */
+.f3-rule { border: none; border-top: var(--hairline) solid var(--border-default); margin: 0; }

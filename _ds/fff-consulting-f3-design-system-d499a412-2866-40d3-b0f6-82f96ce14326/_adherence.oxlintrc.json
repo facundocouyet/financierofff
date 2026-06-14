@@ -1,0 +1,376 @@
+{
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/forbid-elements": [
+      "warn",
+      {
+        "forbid": []
+      }
+    ],
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": [
+          {
+            "group": [
+              "components/core/**",
+              "ui_kits/slides/**",
+              "ui_kits/social/**",
+              "ui_kits/website/**"
+            ],
+            "message": "Import design-system components from 'index.js', not component internals."
+          }
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        "selector": "Literal[value=/#[0-9a-fA-F]{3,8}\\b/]",
+        "message": "Raw hex color — use a design-system color token via var()."
+      },
+      {
+        "selector": "Literal[value=/\\b\\d+px\\b/]",
+        "message": "Raw px value — use a design-system spacing token via var()."
+      },
+      {
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Helvetica Now Display|Exposure|Exposure Ink|Exposure Ink Heavy|MANIC|MANIC Alt 1|MANIC Alt 2|MANIC Alt 3|MANIC Sketches))/i]",
+        "message": "Font not provided by the design system. Available: Helvetica Now Display, Exposure, Exposure Ink, Exposure Ink Heavy, MANIC, MANIC Alt 1, MANIC Alt 2, MANIC Alt 3, MANIC Sketches."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Annotation'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|code|side|lineLength|ink|accent|style|key|ref|className|style|children)$/]",
+        "message": "<Annotation> doesn't accept that prop. Declared props: children, code, side, lineLength, ink, accent, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Annotation'] > JSXAttribute[name.name='side'] > Literal[value!=/^(?:left|right)$/]",
+        "message": "<Annotation> side must be one of 'left' | 'right'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Avatar'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|alt|initials|size|square|ring|grayscale|style|key|ref|className|style|children)$/]",
+        "message": "<Avatar> doesn't accept that prop. Declared props: src, alt, initials, size, square, ring, grayscale, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|dotOnly|style|key|ref|className|style|children)$/]",
+        "message": "<Badge> doesn't accept that prop. Declared props: children, variant, dotOnly, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:accent|ink|light)$/]",
+        "message": "<Badge> variant must be one of 'accent' | 'ink' | 'light'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|size|pill|full|uppercase|disabled|iconLeft|iconRight|onClick|type|style|key|ref|className|style|children)$/]",
+        "message": "<Button> doesn't accept that prop. Declared props: children, variant, size, pill, full, uppercase, disabled, iconLeft, iconRight, onClick, type, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:primary|accent|outline|ghost|inverse)$/]",
+        "message": "<Button> variant must be one of 'primary' | 'accent' | 'outline' | 'ghost' | 'inverse'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='size'] > Literal[value!=/^(?:sm|md|lg)$/]",
+        "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Button'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:button|submit|reset)$/]",
+        "message": "<Button> type must be one of 'button' | 'submit' | 'reset'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Card'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|ink|accentEdge|corner|floating|padded|style|key|ref|className|style|children)$/]",
+        "message": "<Card> doesn't accept that prop. Declared props: children, ink, accentEdge, corner, floating, padded, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|hint|value|onChange|placeholder|type|accent|disabled|full|style|inputStyle|key|ref|className|style|children)$/]",
+        "message": "<Input> doesn't accept that prop. Declared props: label, hint, value, onChange, placeholder, type, accent, disabled, full, style, inputStyle."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Stamp'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|bracket|accent|boxed|style|key|ref|className|style|children)$/]",
+        "message": "<Stamp> doesn't accept that prop. Declared props: children, bracket, accent, boxed, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|variant|pill|dot|style|key|ref|className|style|children)$/]",
+        "message": "<Tag> doesn't accept that prop. Declared props: children, variant, pill, dot, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Tag'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:solid|outline|muted|accent)$/]",
+        "message": "<Tag> variant must be one of 'solid' | 'outline' | 'muted' | 'accent'."
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/index.js"
+      ],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ],
+  "x-omelette": {
+    "components": {
+      "Annotation": {
+        "replaces": []
+      },
+      "Avatar": {
+        "replaces": []
+      },
+      "Badge": {
+        "replaces": []
+      },
+      "Button": {
+        "replaces": []
+      },
+      "Card": {
+        "replaces": []
+      },
+      "Input": {
+        "replaces": []
+      },
+      "Stamp": {
+        "replaces": []
+      },
+      "Tag": {
+        "replaces": []
+      }
+    },
+    "tokens": [
+      "--accent",
+      "--accent-press",
+      "--bg-ink",
+      "--bg-page",
+      "--bg-subtle",
+      "--border-default",
+      "--border-ink",
+      "--border-strong",
+      "--container-max",
+      "--dur-base",
+      "--dur-fast",
+      "--dur-slow",
+      "--ease-out",
+      "--ease-standard",
+      "--f3-acento",
+      "--f3-acento-press",
+      "--f3-blanco",
+      "--f3-gris-400",
+      "--f3-gris-500",
+      "--f3-gris-700",
+      "--f3-gris-claro",
+      "--f3-gris-medio",
+      "--f3-gris-oscuro",
+      "--f3-ink-warm",
+      "--f3-negro",
+      "--f3-paper",
+      "--f3-paper-2",
+      "--font-base",
+      "--font-display",
+      "--font-hand",
+      "--font-ink",
+      "--font-ink-heavy",
+      "--font-mark",
+      "--font-mono",
+      "--fs-2xl",
+      "--fs-2xs",
+      "--fs-3xl",
+      "--fs-4xl",
+      "--fs-5xl",
+      "--fs-base",
+      "--fs-lg",
+      "--fs-md",
+      "--fs-sm",
+      "--fs-xl",
+      "--fs-xs",
+      "--grain-opacity",
+      "--grain-opacity-ink",
+      "--grid-line",
+      "--grid-line-ink",
+      "--grid-size",
+      "--gutter",
+      "--hairline",
+      "--lh-body",
+      "--lh-heading",
+      "--lh-relaxed",
+      "--lh-snug",
+      "--lh-tight",
+      "--ls-normal",
+      "--ls-tight",
+      "--ls-tighter",
+      "--ls-wide",
+      "--ls-wider",
+      "--margin-page",
+      "--on-accent",
+      "--radius-full",
+      "--radius-none",
+      "--radius-pill",
+      "--radius-sm",
+      "--radius-xs",
+      "--rule",
+      "--rule-bold",
+      "--shadow-card",
+      "--shadow-modal",
+      "--shadow-none",
+      "--shadow-pop",
+      "--sp-0",
+      "--sp-1",
+      "--sp-10",
+      "--sp-2",
+      "--sp-3",
+      "--sp-4",
+      "--sp-5",
+      "--sp-6",
+      "--sp-7",
+      "--sp-8",
+      "--sp-9",
+      "--surface-card",
+      "--surface-ink",
+      "--surface-ink-2",
+      "--surface-paper",
+      "--surface-raised",
+      "--text-body",
+      "--text-caption",
+      "--text-display",
+      "--text-h1",
+      "--text-h2",
+      "--text-h3",
+      "--text-inverse",
+      "--text-label",
+      "--text-muted",
+      "--text-on-ink",
+      "--text-on-ink-dim",
+      "--text-primary",
+      "--text-secondary",
+      "--text-statement",
+      "--w-black",
+      "--w-bold",
+      "--w-light",
+      "--w-medium",
+      "--w-regular",
+      "--w-thin"
+    ],
+    "tokenKinds": {
+      "--f3-negro": "color",
+      "--f3-gris-oscuro": "color",
+      "--f3-gris-medio": "color",
+      "--f3-gris-claro": "color",
+      "--f3-blanco": "color",
+      "--f3-acento": "color",
+      "--f3-gris-700": "color",
+      "--f3-gris-500": "color",
+      "--f3-gris-400": "color",
+      "--f3-acento-press": "color",
+      "--f3-paper": "color",
+      "--f3-paper-2": "color",
+      "--f3-ink-warm": "color",
+      "--bg-page": "color",
+      "--surface-paper": "color",
+      "--bg-subtle": "color",
+      "--surface-card": "color",
+      "--surface-raised": "color",
+      "--border-default": "color",
+      "--border-strong": "color",
+      "--text-primary": "font",
+      "--text-secondary": "font",
+      "--text-muted": "font",
+      "--text-inverse": "font",
+      "--accent": "color",
+      "--accent-press": "color",
+      "--on-accent": "color",
+      "--bg-ink": "color",
+      "--surface-ink": "color",
+      "--surface-ink-2": "color",
+      "--border-ink": "color",
+      "--text-on-ink": "font",
+      "--text-on-ink-dim": "font",
+      "--font-base": "font",
+      "--font-display": "font",
+      "--font-ink": "font",
+      "--font-ink-heavy": "font",
+      "--font-mark": "font",
+      "--font-hand": "font",
+      "--font-mono": "font",
+      "--w-thin": "other",
+      "--w-light": "other",
+      "--w-regular": "other",
+      "--w-medium": "other",
+      "--w-bold": "other",
+      "--w-black": "other",
+      "--fs-2xs": "spacing",
+      "--fs-xs": "spacing",
+      "--fs-sm": "spacing",
+      "--fs-base": "spacing",
+      "--fs-md": "spacing",
+      "--fs-lg": "spacing",
+      "--fs-xl": "spacing",
+      "--fs-2xl": "spacing",
+      "--fs-3xl": "spacing",
+      "--fs-4xl": "spacing",
+      "--fs-5xl": "spacing",
+      "--lh-tight": "other",
+      "--lh-snug": "other",
+      "--lh-heading": "other",
+      "--lh-body": "other",
+      "--lh-relaxed": "other",
+      "--ls-tighter": "other",
+      "--ls-tight": "other",
+      "--ls-normal": "other",
+      "--ls-wide": "other",
+      "--ls-wider": "other",
+      "--text-display": "font",
+      "--text-statement": "font",
+      "--text-h1": "font",
+      "--text-h2": "font",
+      "--text-h3": "font",
+      "--text-body": "font",
+      "--text-label": "font",
+      "--text-caption": "font",
+      "--sp-0": "spacing",
+      "--sp-1": "spacing",
+      "--sp-2": "spacing",
+      "--sp-3": "spacing",
+      "--sp-4": "spacing",
+      "--sp-5": "spacing",
+      "--sp-6": "spacing",
+      "--sp-7": "spacing",
+      "--sp-8": "spacing",
+      "--sp-9": "spacing",
+      "--sp-10": "spacing",
+      "--container-max": "spacing",
+      "--gutter": "color",
+      "--margin-page": "spacing",
+      "--radius-none": "radius",
+      "--radius-xs": "radius",
+      "--radius-sm": "radius",
+      "--radius-pill": "radius",
+      "--radius-full": "radius",
+      "--hairline": "spacing",
+      "--rule": "spacing",
+      "--rule-bold": "spacing",
+      "--shadow-none": "shadow",
+      "--shadow-card": "shadow",
+      "--shadow-pop": "shadow",
+      "--shadow-modal": "shadow",
+      "--ease-standard": "other",
+      "--ease-out": "other",
+      "--dur-fast": "other",
+      "--dur-base": "other",
+      "--dur-slow": "other",
+      "--grain-opacity": "other",
+      "--grain-opacity-ink": "other",
+      "--grid-line": "color",
+      "--grid-line-ink": "color",
+      "--grid-size": "spacing"
+    },
+    "fontFamilies": [
+      "Exposure",
+      "Exposure Ink",
+      "Exposure Ink Heavy",
+      "Helvetica Now Display",
+      "MANIC",
+      "MANIC Alt 1",
+      "MANIC Alt 2",
+      "MANIC Alt 3",
+      "MANIC Sketches"
+    ]
+  }
+}

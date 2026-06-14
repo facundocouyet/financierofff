@@ -1,0 +1,51 @@
+/* ============================================================
+   FFF / F3 — COLOR
+   "Paleta Cromática" — monochrome system + single signal red.
+   Source: Branding F3, p.9 (Cáscara Collective, 2026).
+   ============================================================ */
+:root {
+  /* --- Base palette (exact brand hexes) --- */
+  --f3-negro:        #171717; /* Negro        — primary ink / backgrounds */
+  --f3-gris-oscuro:  #2D2D2D; /* Gris Oscuro  — raised surfaces on black   */
+  --f3-gris-medio:   #C7C7C7; /* Gris Medio   — borders, muted UI          */
+  --f3-gris-claro:   #EDEDED; /* Gris Claro   — light surfaces, fills       */
+  --f3-blanco:       #FAFAFA; /* Blanco       — paper / page               */
+  --f3-acento:       #FE1414; /* Acento       — signal red, used sparingly  */
+
+  /* --- Extra neutral steps derived for UI depth (not in book, kept on-hue) --- */
+  --f3-gris-700:     #3A3A3A;
+  --f3-gris-500:     #6E6E6E;
+  --f3-gris-400:     #9A9A9A;
+  --f3-acento-press: #D40D0D; /* darker red for pressed/active states */
+
+  /* --- Paper: the warm editorial stock the book is printed on. The
+         official Blanco is #FAFAFA (cold); in use the surface reads as a
+         warm-neutral paper. Use --surface-paper for editorial layouts. --- */
+  --f3-paper:        #ECEAE4; /* warm bone paper — the default canvas      */
+  --f3-paper-2:      #E3E0D8; /* a half-step deeper warm paper             */
+  --f3-ink-warm:     #1A1815; /* near-black with a warm cast (dark spreads)*/
+
+  /* --- Semantic aliases — light context (PAPER is the default) --- */
+  --bg-page:         var(--f3-paper);
+  --surface-paper:   var(--f3-paper);
+  --bg-subtle:       var(--f3-paper-2);
+  --surface-card:    var(--f3-blanco);
+  --surface-raised:  #FFFFFF;
+  --border-default:  var(--f3-gris-medio);
+  --border-strong:   var(--f3-negro);
+  --text-primary:    var(--f3-negro);
+  --text-secondary:  var(--f3-gris-500);
+  --text-muted:      var(--f3-gris-400);
+  --text-inverse:    var(--f3-blanco);
+  --accent:          var(--f3-acento);
+  --accent-press:    var(--f3-acento-press);
+  --on-accent:       var(--f3-blanco);
+
+  /* --- Semantic aliases — dark context (ink) --- */
+  --bg-ink:          var(--f3-negro);
+  --surface-ink:     var(--f3-gris-oscuro);
+  --surface-ink-2:   var(--f3-gris-700);
+  --border-ink:      var(--f3-gris-700);
+  --text-on-ink:     var(--f3-blanco);
+  --text-on-ink-dim: var(--f3-gris-400);
+}
