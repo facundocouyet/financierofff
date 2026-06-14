@@ -63,6 +63,12 @@
   .ink .tl,.ink .tr,.ink .bl,.ink .br, .red .tl,.red .tr,.red .bl,.red .br { color: rgba(255,255,255,0.7); }
   .tl{top:32px;left:40px} .tr{top:32px;right:40px;text-align:right} .bl{bottom:30px;left:40px} .br{display:none}
 
+  /* back-to-home link (cover slides) — a touch more presence + signal-red hover */
+  a.tl.backhome { display:inline-flex; align-items:center; gap:.5ch; padding:6px 11px;
+    border:1px solid rgba(255,255,255,0.45); border-radius:999px; color:#fff; text-decoration:none;
+    opacity:.95; transition:background .15s ease, border-color .15s ease, color .15s ease, opacity .15s ease; }
+  a.tl.backhome:hover, a.tl.backhome:focus-visible { background:var(--accent); border-color:var(--accent); color:#fff; opacity:1; outline:none; }
+
   .boxlabel { display:inline-flex; align-items:center; gap:.4ch; border:1px solid currentColor; padding:5px 9px; font-weight:700; font-size:12px; }
   .boxlabel sup { font-size:.6em; }
 
