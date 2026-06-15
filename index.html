@@ -64,6 +64,8 @@
   .live__upd{ font-size:15px; color:rgba(255,255,255,.6); margin-top:16px; line-height:1.45; }
   .live__upd b{ color:#fff; font-weight:700; }
   .live__upd .liveem{ color:var(--red); font-weight:700; }
+  .live__sync{ font-family:var(--font-mono); font-size:12px; letter-spacing:.04em; color:rgba(255,255,255,.45); margin-top:12px; line-height:1.4; }
+  .live__sync.stale{ color:var(--red); font-weight:700; letter-spacing:.02em; }
   .live__cta{ display:flex; flex-direction:column; align-items:flex-end; gap:12px; flex:0 0 auto; }
   .live__btn{ display:inline-flex; align-items:center; gap:10px; text-decoration:none; background:var(--red);
     color:#fff; font-size:17px; font-weight:700; padding:15px 26px; border-radius:999px; white-space:nowrap;
@@ -193,7 +195,8 @@
       <div class="live__kick"><span class="live__dot"></span>Actualización diaria · Libro Diario · F3 2026</div>
       <div class="live__l">La caja que tenemos hoy</div>
       <div class="live__v num" id="cajaVal">—</div>
-      <div class="live__upd">Última actualización: <b id="cajaFecha">—</b> &nbsp;·&nbsp; tomada <span class="liveem">en vivo</span> del Libro Diario de la planilla de gestión F3 2026.</div>
+      <div class="live__upd">Último movimiento de caja: <b id="cajaFecha">—</b> &nbsp;·&nbsp; dato tomado <span class="liveem">en vivo</span> de la planilla de gestión F3 2026.</div>
+      <div class="live__sync" id="cajaSync"></div>
     </div>
     <div class="live__cta">
       <a class="live__btn" href="https://docs.google.com/spreadsheets/d/1H-D5D0Liw12v6Vu11hz9Pdu4uFPIbD0kylk6HR-kLMU/edit" target="_blank" rel="noopener">Abrir planilla de gestión <span class="ar">→</span></a>
@@ -350,12 +353,31 @@
       if (!m) return iso || '';
       return Number(m[3]) + ' ' + meses[Number(m[2]) - 1] + ' ' + m[1];
     }
+    // Timestamp completo (fecha + hora, en horario de Argentina) de la última corrida de la automatización.
+    function fmtStamp(iso) {
+      var d = new Date(iso || '');
+      if (isNaN(d.getTime())) return '';
+      return d.toLocaleString('es-AR', { timeZone: 'America/Argentina/Buenos_Aires',
+        day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
+    }
     fetch('data/cash.json?v=' + Date.now())
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (c) {
         if (!c || c.cash == null) return;
         document.getElementById('cajaVal').textContent = money(c.cash);
         document.getElementById('cajaFecha').textContent = fmtFecha(c.fecha);
+        // Latido de la automatización: cuándo sincronizó por última vez. Si hace > 2 días, lo marca en rojo.
+        var sync = document.getElementById('cajaSync');
+        var stamp = fmtStamp(c.actualizado);
+        if (stamp) {
+          var days = (Date.now() - new Date(c.actualizado).getTime()) / 86400000;
+          if (days > 2) {
+            sync.textContent = '⚠ La automatización no se actualiza desde el ' + stamp + ' (hace ' + Math.floor(days) + ' días)';
+            sync.classList.add('stale');
+          } else {
+            sync.textContent = 'Automatización · última sincronización: ' + stamp;
+          }
+        }
         document.getElementById('cajaHoy').style.display = 'grid';
       })
       .catch(function () {});
