@@ -117,7 +117,7 @@
   .prow.sub .v{ font-size:22px; color:var(--ink); }
 
   /* cajas mini cards */
-  .cajarow{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:24px; }
+  .cajarow{ display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:24px; }
   .cajabox{ border:2px solid var(--ink); padding:18px 18px 16px; border-radius:14px; }
   .cajabox .nm{ font-family:var(--font-display); font-size:23px; }
   .cajabox .v{ font-family:var(--font-display); font-size:30px; color:var(--red); margin-top:8px; line-height:1; }
@@ -141,12 +141,22 @@
   <!-- HERO -->
   <section class="hero">
     <img class="hero__wm" src="assets/logos/logo-principal-blanco.svg" alt="F3">
-    <div class="kicker">Primer semestre · Enero–Junio 2026</div>
-    <h1>Medio año, una <span class="em">misma caja</span></h1>
-    <div class="hero__saldo">
-      <div class="l">El saldo, de punta a punta</div>
-      <div class="hero__fig num">US$15.700 <span class="red">→</span> US$4.874</div>
-      <div class="hero__arc">En dólares. F3 opera desde marzo: enero y febrero van en cero. Marzo dejó el colchón que fuimos consumiendo mes a mes.</div>
+    <div class="kicker">Informe de caja · Primer semestre 2026</div>
+    <h1>Medio año <span class="em">de caja</span></h1>
+    <p style="font-size:15px;color:rgba(255,255,255,0.7);margin-top:14px;line-height:1.5;max-width:40ch">Enero a junio · F3 opera desde marzo. Lo facturado, lo cobrado y lo que quedó en la caja.</p>
+    <div style="display:flex;margin-top:28px;border-top:1px solid rgba(255,255,255,0.22);padding-top:20px">
+      <div style="flex:1">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)">Facturado</div>
+        <div class="em" style="font-size:30px;color:#fff;margin-top:6px">US$47k</div>
+      </div>
+      <div style="flex:1;padding-left:14px;border-left:1px solid rgba(255,255,255,0.18)">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)">Cobrado</div>
+        <div class="em" style="font-size:30px;color:var(--red);margin-top:6px">US$35k</div>
+      </div>
+      <div style="flex:1;padding-left:14px;border-left:1px solid rgba(255,255,255,0.18)">
+        <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,0.55)">Caja hoy</div>
+        <div class="em" style="font-size:30px;color:#fff;margin-top:6px">US$1.235</div>
+      </div>
     </div>
   </section>
 
@@ -237,7 +247,6 @@
     <div class="cajarow">
       <div class="cajabox"><div class="nm">Facu</div><div class="v num">US$1.234</div><div class="s">Cuenta operativa</div></div>
       <div class="cajabox"><div class="nm">Franco</div><div class="v num">US$0</div><div class="s">Repartido</div></div>
-      <div class="cajabox"><div class="nm">Mateo</div><div class="v num">US$0</div><div class="s">Repartido</div></div>
     </div>
     <p class="note">El semestre cerró en <b>US$4.874</b>, pero tras los <b>pagos fijos de julio</b> (US$3.639) la caja operativa quedó hoy en <b>≈US$1.235</b>, casi toda en la cuenta de Facu.</p>
   </section>
